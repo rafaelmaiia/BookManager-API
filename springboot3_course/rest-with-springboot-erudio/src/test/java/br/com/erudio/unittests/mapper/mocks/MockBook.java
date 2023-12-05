@@ -36,21 +36,21 @@ public class MockBook {
     
     public Book mockEntity(Integer number) {
         Book book = new Book();
-        book.setAuthor("Author Test" + number);
+        book.setAuthor("Some Author" + number);
         book.setLaunchDate(new Date());
-        book.setPrice(number.doubleValue());
+        book.setPrice(25D);
         book.setId(number.longValue());
-        book.setTitle("Title Test" + number);
+        book.setTitle("Some Title" + number);
         return book;
     }
 
     public BookVO mockVO(Integer number) {
         BookVO book = new BookVO();
-        book.setAuthor("Author Test" + number);
+        book.setAuthor("Some Author" + number);
         book.setLaunchDate(new Date());
-        book.setPrice(number.doubleValue());
+        book.setPrice(25D);
         book.setId(number.longValue());
-        book.setTitle("Title Test" + number);
+        book.setTitle("Some Title" + number);
         return book;
     }
 

@@ -56,15 +56,15 @@ class BookServicesTest {
 		assertNotNull(result.getId());
 		assertNotNull(result.getLinks());
 		assertTrue(result.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test1", result.getAuthor());
-		assertEquals("Launch Date Test1", result.getLaunchDate());
-		assertEquals("Title Test1", result.getTitle());
-		assertEquals("Price Test1", result.getPrice());
+		assertEquals("Some Author1", result.getAuthor());
+		assertNotNull(result.getLaunchDate());
+		assertEquals("Some Title1", result.getTitle());
+		assertEquals(25D, result.getPrice());
 	}
 	
 	@Test
 	void testFindAll() {
-		List<Book> list = input.mockEntityList();
+		List<Book> list = input.mockEntityList(); 
 		
 		when(bookRepository.findAll()).thenReturn(list);
 		
@@ -78,33 +78,36 @@ class BookServicesTest {
 		assertNotNull(bookOne);
 		assertNotNull(bookOne.getId());
 		assertNotNull(bookOne.getLinks());
+		
 		assertTrue(bookOne.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test1", bookOne.getAuthor());
-		assertEquals("Launch Date Test1", bookOne.getLaunchDate());
-		assertEquals("Title Test1", bookOne.getTitle());
-		assertEquals("Price Test1", bookOne.getPrice());
-
+		assertEquals("Some Author1", bookOne.getAuthor());
+		assertEquals("Some Title1", bookOne.getTitle());
+		assertEquals(25D, bookOne.getPrice());
+		assertNotNull(bookOne.getLaunchDate());
+		
 		var bookFour = book.get(4);
 		
 		assertNotNull(bookFour);
 		assertNotNull(bookFour.getId());
 		assertNotNull(bookFour.getLinks());
-		assertTrue(bookFour.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test4", bookFour.getAuthor());
-		assertEquals("Launch Date Test4", bookFour.getLaunchDate());
-		assertEquals("Title Test4", bookFour.getTitle());
-		assertEquals("Price Test4", bookFour.getPrice());
-
+		
+		assertTrue(bookFour.toString().contains("links: [</api/book/v1/4>;rel=\"self\"]"));
+		assertEquals("Some Author4", bookFour.getAuthor());
+		assertEquals("Some Title4", bookFour.getTitle());
+		assertEquals(25D, bookFour.getPrice());
+		assertNotNull(bookFour.getLaunchDate());
+		
 		var bookSeven = book.get(7);
 		
 		assertNotNull(bookSeven);
 		assertNotNull(bookSeven.getId());
 		assertNotNull(bookSeven.getLinks());
-		assertTrue(bookSeven.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test7", bookSeven.getAuthor());
-		assertEquals("Launch Date Test7", bookSeven.getLaunchDate());
-		assertEquals("Title Test7", bookSeven.getTitle());
-		assertEquals("Price Test7", bookSeven.getPrice());
+		
+		assertTrue(bookSeven.toString().contains("links: [</api/book/v1/7>;rel=\"self\"]"));
+		assertEquals("Some Author7", bookSeven.getAuthor());
+		assertEquals("Some Title7", bookSeven.getTitle());
+		assertEquals(25D, bookSeven.getPrice());
+		assertNotNull(bookSeven.getLaunchDate());
 	}
 
 	@Test
@@ -124,10 +127,10 @@ class BookServicesTest {
 		assertNotNull(result.getId());
 		assertNotNull(result.getLinks());
 		assertTrue(result.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test1", result.getAuthor());
-		assertEquals("Launch Date Test1", result.getLaunchDate());
-		assertEquals("Title Test1", result.getTitle());
-		assertEquals("Price Test1", result.getPrice());
+		assertEquals("Some Author1", result.getAuthor());
+		assertNotNull(result.getLaunchDate());
+		assertEquals("Some Title1", result.getTitle());
+		assertEquals(25D, result.getPrice());
 	}
 	
 	@Test
@@ -160,10 +163,10 @@ class BookServicesTest {
 		assertNotNull(result.getId());
 		assertNotNull(result.getLinks());
 		assertTrue(result.toString().contains("links: [</api/book/v1/1>;rel=\"self\"]"));
-		assertEquals("Author Test1", result.getAuthor());
-		assertEquals("Launch Date Test1", result.getLaunchDate());
-		assertEquals("Title Test1", result.getTitle());
-		assertEquals("Price Test1", result.getPrice());
+		assertEquals("Some Author1", result.getAuthor());
+		assertNotNull(result.getLaunchDate());
+		assertEquals("Some Title1", result.getTitle());
+		assertEquals(25D, result.getPrice());
 	}
 	
 	
