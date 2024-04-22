@@ -41,6 +41,7 @@ public class AuthServices {
 			} else {
 				throw new UsernameNotFoundException("Username " + username + " not found!");
 			}
+			
 			return ResponseEntity.ok(tokenResponse);
 		} catch (Exception e) {
 			throw new BadCredentialsException("Invalid username/password supplied!");
