@@ -62,9 +62,8 @@ public class SecurityConfig {
 						.requestMatchers(
 							"/auth/signin", 
 							"/auth/refresh/**", 
-							"/swagger-ui/**", 
-							"/v3/apic-docs/**"
-							).permitAll()
+							"/swagger-ui/**",
+							"/v3/api-docs/**").permitAll()
 						.requestMatchers("/api/**").authenticated()
 						.requestMatchers("/users").denyAll()
 				)

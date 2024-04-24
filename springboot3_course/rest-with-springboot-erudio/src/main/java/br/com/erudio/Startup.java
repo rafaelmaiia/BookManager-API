@@ -1,7 +1,7 @@
 package br.com.erudio;
  
-//import java.util.HashMap;
-//import java.util.Map;
+/**import java.util.HashMap;
+import java.util.Map; */
  
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,7 +29,7 @@ public class Startup {
         DelegatingPasswordEncoder passwordEncoder = new DelegatingPasswordEncoder("pbkdf2", encoders);
         passwordEncoder.setDefaultPasswordEncoderForMatches(pbkdf2Encoder);
         
-        String result1 = passwordEncoder.encode("admin123");
+        String result1 = passwordEncoder.encode("coffee123");
         String result2 = passwordEncoder.encode("admin234");
         System.out.println("My hash result1 " + result1);
         System.out.println("My hash result2 " + result2);
