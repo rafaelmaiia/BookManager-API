@@ -11,7 +11,7 @@ import com.github.dozermapper.core.Mapping;
 
 import jakarta.persistence.Column;
 
-@JsonPropertyOrder({"id", "firstName", "lastName", "address", "gender"}) // define a ordem dos campos
+@JsonPropertyOrder({"id", "firstName", "lastName", "address", "gender", "enabled"}) // define a ordem dos campos
 public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
