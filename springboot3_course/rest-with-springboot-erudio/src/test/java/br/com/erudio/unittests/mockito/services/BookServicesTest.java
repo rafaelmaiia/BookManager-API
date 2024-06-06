@@ -61,7 +61,8 @@ class BookServicesTest {
 		assertEquals("Some Title1", result.getTitle());
 		assertEquals(25D, result.getPrice());
 	}
-	/**
+	
+	/*
 	@Test
 	void testFindAll() {
 		List<Book> list = input.mockEntityList(); 
