@@ -16,7 +16,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,6 +25,7 @@ import br.com.erudio.data.vo.v1.security.AccountCredentialsVO;
 import br.com.erudio.integrationtests.testcontainers.AbstractIntegrationTest;
 import br.com.erudio.integrationtests.vo.BookVO;
 import br.com.erudio.integrationtests.vo.TokenVO;
+import br.com.erudio.integrationtests.vo.wrappers.WrapperBookVO;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -191,8 +191,9 @@ public class BookControllerJsonTest extends AbstractIntegrationTest {
                 .extract()
                     .body()
                 .asString();
-        
-        List<BookVO> books = objectMapper.readValue(content, new TypeReference<List<BookVO>>() {});
+		
+        WrapperBookVO wrapper = objectMapper.readValue(content, WrapperBookVO.class);
+		List<BookVO> books = wrapper.getEmbedded().getBooks();
 		
         BookVO foundBookOne = books.get(0);
         
@@ -200,10 +201,11 @@ public class BookControllerJsonTest extends AbstractIntegrationTest {
         assertNotNull(foundBookOne.getTitle());
         assertNotNull(foundBookOne.getAuthor());
         assertNotNull(foundBookOne.getPrice());
-        assertTrue(foundBookOne.getId() > 0);
-        assertEquals("Working effectively with legacy code", foundBookOne.getTitle());
-        assertEquals("Michael C. Feathers", foundBookOne.getAuthor());
-        assertEquals(49.00, foundBookOne.getPrice());
+        
+        assertEquals(15, foundBookOne.getId());
+        assertEquals("Implantando a governança de TI", foundBookOne.getTitle());
+        assertEquals("Aguinaldo Aragon Fernandes e Vladimir Ferraz de Abreu", foundBookOne.getAuthor());
+        assertEquals(54.0, foundBookOne.getPrice());
         
         BookVO foundBookFive = books.get(4);
         
@@ -211,10 +213,11 @@ public class BookControllerJsonTest extends AbstractIntegrationTest {
         assertNotNull(foundBookFive.getTitle());
         assertNotNull(foundBookFive.getAuthor());
         assertNotNull(foundBookFive.getPrice());
-        assertTrue(foundBookFive.getId() > 0);
-        assertEquals("Code complete", foundBookFive.getTitle());
-        assertEquals("Steve McConnell", foundBookFive.getAuthor());
-        assertEquals(58.0, foundBookFive.getPrice());
+        
+        assertEquals(7, foundBookFive.getId());
+        assertEquals("Head First Design Patterns", foundBookFive.getTitle());
+        assertEquals("Eric Freeman, Elisabeth Freeman, Kathy Sierra, Bert Bates", foundBookFive.getAuthor());
+        assertEquals(110.0, foundBookFive.getPrice());
     }
      
     private void mockBook() {
