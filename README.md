@@ -2,7 +2,7 @@
 
 [![Docker Hub Repo](https://img.shields.io/docker/pulls/rafaelmaiia/rest_with_springboot_erudio.svg)](https://hub.docker.com/repository/docker/rafaelmaiia/rest_with_springboot_erudio)
 
-Este projeto é uma implementação de uma API RESTful utilizando o Spring Boot 3 e Java 17, desenvolvido como parte do curso de Leandro Costa na Udemy. O curso oferece um aprendizado prático e teórico sobre o desenvolvimento de APIs, abrangendo desde os fundamentos até a implantação em nuvem.
+Este projeto é uma implementação de uma API RESTful para gerenciar pessoas e livros, utilizando Spring Boot 3 e Java 17, com ênfase em práticas de desenvolvimento ágil e implantação em nuvem. A aplicação inclui operações completas de CRUD (Create, Read, Update, Delete), permitindo a manipulação eficiente de dados. A API oferece segurança robusta por meio de autenticação JWT e Spring Security, além de garantir a escalabilidade e a flexibilidade necessárias para futuras implementações.
 
 ## Tecnologias Utilizadas
 
