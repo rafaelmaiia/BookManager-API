@@ -20,7 +20,7 @@ export default function Login() {
             </section>
 
             <img src={padlock} alt="Login" />
-            
+
         </div>
-    )
+    );
 }
