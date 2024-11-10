@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
-import api from '../../services/api'
+import api from '../../services/api';
 
 import logoImage from '../../assets/logo.svg';
 import padlock from '../../assets/padlock.png';
@@ -25,9 +25,11 @@ export default function Login() {
         try {
             const response = await api.post('auth/signin', data);
 
+            // Salvando o username e o token
             localStorage.setItem('username', username);
-            localStorage.setItem('accessToken', response.data.token);
+            localStorage.setItem('accessToken', response.data.accessToken);
 
+            // Após login, redireciona para a página de livros
             navigate('/books');
         } catch (err) {
             alert('Login failed! Try agains!')
