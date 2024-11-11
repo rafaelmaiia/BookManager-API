@@ -29,9 +29,9 @@ public class WebConfig implements WebMvcConfigurer{
 	public void addCorsMappings(CorsRegistry registry) {
 		var allowedOrigins = corsOriginPatterns.split(","); // Dividindo as origens configuradas
 		registry.addMapping("/**")
-			.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT")
+			// .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT")
 			// .allowedOrigins("http://localhost:3000", "http://localhost")
-			// .allowedMethods("*") permite que qualquer método HTTP seja aceito para requisições provenientes de origens externas
+			.allowedMethods("*") // permite que qualquer método HTTP seja aceito para requisições provenientes de origens externas
 			.allowedOrigins(allowedOrigins) // Usando as origens configuradas dinamicamente
 		.allowCredentials(true);
 	}

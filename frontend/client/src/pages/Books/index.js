@@ -10,6 +10,7 @@ import logoImage from '../../assets/logo.svg';
 export default function Books() {
 
     const [books, setBooks] = useState([]);
+    const [page, setPage] = useState(1);
 
     const username = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
@@ -43,19 +44,27 @@ export default function Books() {
         }
     }
 
-    useEffect(() => {
-        api.get('api/book/v1', {
+    async function fetchMoreBooks() {
+        const response = await api.get('api/book/v1', {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             },
             params: {
-                page: 1,
-                limit: 4,
+                page: page,
+                size: 4,
                 direction: 'asc'
             }
-        }).then(response => {
-            setBooks(response.data._embedded.bookVOList)
-        })
+        });
+
+        console.log(response.data); // Adiciona este log para verificar a resposta da API
+
+        if(!response.data._embedded) return;
+        setBooks([ ...books, ...response.data._embedded.bookVOList]);
+        setPage(prevPage => prevPage + 1);
+    }
+
+    useEffect(() => {
+        fetchMoreBooks();
     }, []);
 
     return (
@@ -91,6 +100,8 @@ export default function Books() {
                 </li>
                 ))}
             </ul>
+
+            <button className="button" onClick={fetchMoreBooks} type='button'>Load More</button>
         </div>
     );
 }
