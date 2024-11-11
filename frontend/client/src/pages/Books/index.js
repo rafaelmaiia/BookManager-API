@@ -56,7 +56,7 @@ export default function Books() {
         }).then(response => {
             setBooks(response.data._embedded.bookVOList)
         })
-    });
+    }, []);
 
     return (
         <div className="book-container">
