@@ -4,7 +4,7 @@ import './styles.css';
 
 import api from '../../services/api';
 
-import logoImage from '../../assets/logo.svg';
+import logoImage from '../../assets/rm_logo.png';
 import padlock from '../../assets/padlock.png';
 
 export default function Login() {

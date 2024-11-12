@@ -5,7 +5,7 @@ import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi';
 import api from '../../services/api';
 
 import './styles.css';
-import logoImage from '../../assets/logo.svg';
+import logoImage from '../../assets/rm_logo.png';
 
 export default function Books() {
 

@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import './styles.css';
 
-import logoImage from '../../assets/logo.svg';
+import logoImage from '../../assets/rm_logo.png';
 
 export default function NewBook() {
 
